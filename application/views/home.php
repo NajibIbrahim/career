@@ -60,7 +60,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 banner-left">
-                    <h1 data-aos="fade-down" style="color: #fff">aBimbingan Karir</h1>
+                    <h1 data-aos="fade-down" style="color: #fff">Bimbingan Karir</h1>
                     <h3 data-aos="fade-down" data-aos-delay="300" class="text-transpert mt-3" style="color: #fff">Life Skills Education</h3>
                     <a href="<?php echo base_url(); ?>opsi" class="btn btn-info mt-3" role="button" data-aos="fade-down" data-aos-delay="700"><b>Login</b></a>
                 </div>
