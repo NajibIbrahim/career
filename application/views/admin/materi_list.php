@@ -1,7 +1,31 @@
 <?php
 $this->load->view('admin/header');
 ?>
-
+<style>
+div.dataTables_wrapper div.dataTables_length label {
+    font-weight: normal;
+    text-align: left;
+    white-space: nowrap;
+    margin-left: 25px;
+}
+div.dataTables_wrapper div.dataTables_filter {
+    text-align: right;
+    margin-right: 10px;
+}
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    margin: 2px 0;
+    white-space: nowrap;
+    justify-content: flex-end;
+    margin-right: 35px;
+    margin-bottom: 10px;
+}
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 0.85em;
+    white-space: nowrap;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+</style>
 <!-- Header -->
 <div class="header pb-8 pt-5 pt-md-0">
 

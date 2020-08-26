@@ -35,8 +35,61 @@
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
-        $('#example').DataTable();
+
+        $('#submit').submit(function(e){
+            e.preventDefault();
+            $('#btn-simpan').html("Sending...");
+            $.ajax({
+              url: "<?php echo base_url();?>admin/tambah_materi",
+              type: "POST",
+              data: new FormData(this),
+              processData: false,
+              contentType: false,
+              cache: false,
+              async: false,
+              success: function(data){
+                console.log(data);
+                alert("Upload berhasil");
+              }
+            });
+        });
+
+        $('#example').DataTable({
+          "language": {
+            "info": "Menampilkan _START_ sampai _END_ dari jumlah data",
+            "sInfoEmpty": "",
+            "sInfoFiltered": "(terfilter dari _MAX_ data)",
+            "emptyTable": "<center><img src='<?php echo base_url() ?>assets/data/not-found.svg' width='100' /><br><strong>Tidak ada hasil ditemukan</strong></center>",
+            "sLengthMenu": "Data per Halaman: _MENU_",
+              "sLoadingRecords": "<img src='<?php echo base_url() ?>assets/data/ajax-loader.svg' /><br>Silakan tunggu, data sedang di-load...",
+              "sProcessing": "<img src='<?php echo base_url() ?>assets/data/ajax-loader.svg' />",
+              "sSearch": "Cari Data:",
+              "sSearchPlaceholder": "Masukkan kata kunci...",
+              "sZeroRecords": "<center><img src='<?php echo base_url() ?>assets/data/not-found.svg' width='100' /><br><strong>Tidak ada hasil ditemukan</strong></center>",
+            "paginate": {
+              "first": "Pertama",
+              "last": "Terakhir",
+              "previous": "Sebelumnya",
+              "next": "Berikutnya"
+            }
+          },
+        });
       } );
+
+      $(".custom-file-input").on("change", function() {
+          var fileName = $(this).val().split("\\").pop();
+          var extension = fileName.split('.').pop();
+          console.log(extension);
+          $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+          if(extension == 'PNG' || extension == 'docx' || extension == 'pptx' || extension == 'mp4'){
+            $("#hasError").hide();
+            $("#btn-simpan").attr("disabled", false);
+          }else{
+            $("#hasError").show();
+            $("#btn-simpan").attr("disabled", true);
+          }
+
+      });
     </script>
 
     <script src="<?php echo base_url(); ?>assets/login/js/chart.min.js"></script>

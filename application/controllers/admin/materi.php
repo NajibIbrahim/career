@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Materi extends CI_Controller {
 
-
 	public function __construct()
 	{
 		parent::__construct();
@@ -20,7 +19,7 @@ class Materi extends CI_Controller {
 	}
 
 	public function index()
-	{	
+	{
 		$data = $this->Materi_Model->Get('materi');
 		$data = array('data' => $data);
 
@@ -32,42 +31,70 @@ class Materi extends CI_Controller {
 		return $this->load->view('admin/materi_tambah');
 	}
 
+	// public function aksi_tambah(){
+	// 	$config['upload_path'] = './assets/login/materi';
+	// 	$config['allowed_types'] = 'mp4|docx|pptx';
+	// 	$config['encrypt_name'] = TRUE;
+	//
+	// 	$this->upload->initialize($config);
+	// 	if($this->upload->do_upload("file")){
+	// 		$data = array('upload_data' => $this->data());
+	//
+	// 		$materi = $this->input->post('nama_materi');
+	// 		$akses = $this->input->post('akses');
+	//
+	// 		$file = $data['upload_data']['file_name'];
+	//
+	// 		$result = $this->Materi_Model->simpan_materi($materi, $akses, $file);
+	// 		echo json_decode($result);
+	// 	}else{
+	// 		$error = array('error' => $this->upload->display_errors());
+	//  		$this->session->set_flashdata('error',$error['error']);
+	// 	}
+	// }
   // untuk memasukan data ke database
-	public function aksi_tambah()
+	private function upload()
 	{
-		$nama_materi   = $this->input->post('nama_materi');
-		$akses = $this->input->post('akses');
-
       // get file
 		$config['upload_path'] = './assets/login/materi';
 		$config['allowed_types'] = 'jpg|png|jpeg|pptx|docx|pdf|mp4';
     $config['max_size'] = '90000048';  // max
-    $config['file_name'] = $_FILES['nama_file']['name'];
+    $config['file_name'] = $_FILES['file']['name'];
 
-    $this->upload->initialize($config);
+    $this->load->library('upload', $config);
+		$this->upload->initialize($config);
 
-    if (!empty($_FILES['nama_file']['name'])) {
-      if ( $this->upload->do_upload('nama_file') ) {
-       $file = $this->upload->data();
-       $data = array(
-        'nama_materi' => $nama_materi,
-        'akses'       => $akses,
-        'nama_file'   => $file['file_name'],
-      );
-       $this->Materi_Model->insert($data);
-      			// redirect('admin/materi');
-       ?>
-       <script>
-        alert("Berhasil Menambahkan Akun Baru"); document.location= '../materi';
-      </script>
-      <?php
-    }else {
-     die("Gagal Upload");
-   }
- }else {
-  echo "Tidak Masuk";
+		if($this->upload->do_upload("file")){
+			return $this->upload->data("file_name");
+		}
+		print_r($this->upload->display_errors());
+   //    if (!$this->upload->do_upload($nama)) {
+		// 		var_dump($this->upload->do_upload($nama));
+		// 		die();
+   //     $file = $this->upload->data();
+   //     $data = array(
+   //      'nama_materi' => $nama_materi,
+   //      'akses'       => $akses,
+   //      'nama_file'   => $file['file_name'],
+   //    );
+   //     $this->Materi_Model->insert($data);
+   //    			// redirect('admin/materi');
+	 //
+   //  }else {
+   //   // die("Gagal Upload");
+   // }
 }
 
+public function aksi_tambah(){
+	$materi = $this->input->post('nama_materi');
+	$akses = $this->input->post('akses');
+	$file = $this->upload();
+	$data = array(
+		'nama_materi' => $materi,
+		'akses' => $akses,
+		'nama_file' => $file
+	);
+	$this->Materi_Model->insert($data);
 }
 
 public function edit($id)
@@ -99,7 +126,7 @@ public function aksi_edit()
 public function hapus($id){
   $gambar = $this->Materi_Model->gambar($id);
   unlink('assets/login/materi/'.$gambar->gambar);
-  
+
   $this->Materi_Model->hapus($id);
   redirect('admin/akun');
 }

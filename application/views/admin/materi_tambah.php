@@ -2,6 +2,28 @@
 $this->load->view('admin/header');
 ?>
 
+<style>
+.custom-file-label::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    display: block;
+    height: 2.75rem;
+    padding: 0.625rem 0.75rem;
+    line-height: 1.5;
+    color: white;
+    content: "Browse";
+    background-color: #007bff;
+    border-left: 1px solid #cad1d7;
+    border-radius: 0 0.375rem 0.375rem 0;
+    cursor: pointer !important;
+}
+#hasError{
+  color: red;
+}
+</style>
 
 <!-- Header -->
 <div class="header pb-8 pt-5 pt-md-0">
@@ -17,7 +39,7 @@ $this->load->view('admin/header');
               <h2 class="mb-3 text-primary">TAMBAH MATERI</h2>
             </div>
 
-            <form action="<?php echo site_url('admin/materi/aksi_tambah') ?>" method="post" enctype="multipart/form-data">
+            <form id="submit" method="post" enctype="multipart/form-data">
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
@@ -35,14 +57,15 @@ $this->load->view('admin/header');
                 </div>
                 <div class="col-md-6">
                   <div class="custom-file">
-                    <label for="a">Upload File : </label>
-                    <input type="file" id="a" name="nama_file">
+                    <input type="file" class="custom-file-input" id="customFile" name="file">
+                    <label class="custom-file-label" for="customFile">Pilih file (mp4, doxc, pptx)</label>
+                    <span id="hasError" style="display:none">File harus berformat docx, mp4, pptx</span>
                   </div>
                 </div>
 
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-primary my-2" name="simpan">Simpan</button>
+                <button type="submit" id="btn-simpan" class="btn btn-primary my-2" name="simpan">Simpan</button>
               </div>
             </form>
 

@@ -25,6 +25,16 @@ class Materi_Model extends CI_Model {
     return TRUE;
   }
 
+  public function simpan_materi($materi, $akses, $file){
+    $data = array(
+        'nama_materi' => $materi,
+        'akses' => $akses,
+        'nama_file' => $file
+    );
+    $result = $this->db->inser('materi', $data);
+    return $result;
+  }
+
   // public function delete($where)
   // {
   //   $this->db->where($where);
@@ -46,7 +56,7 @@ class Materi_Model extends CI_Model {
 
   private function deleteImage($id)
   {
-    $materi = $this->ambil_data_id($id);    
+    $materi = $this->ambil_data_id($id);
     $filename = explode(".", $materi->file)[0];
     return array_map('unlink', glob(FCPATH."./assets/login/materi/$filename.*"));
   }
