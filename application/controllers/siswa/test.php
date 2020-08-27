@@ -176,7 +176,7 @@ class Test extends CI_Controller {
         $cek = $this->Pengisi_Model->getKategori('4', $username)->num_rows();
         if($cek=0)
         {
-            redirect('siswa/test/pre3');
+            redirect('siswa/test/end_pre');
         }
 
         $data = $this->Pengisi_Model->getTest4('tbl_soal');
@@ -219,15 +219,26 @@ class Test extends CI_Controller {
         }
     }
 
+    public function end_pre()
+    {
+        $this->load->view('siswa/end-pre');
+    }
+
     // -----------------
 
     public function post1()
     {
+        $username = $this->session->userdata('user_name');
+        $cek = $this->Pengisi_Model->getKategori('5', $username)->num_rows();
+            if($cek>0)
+        {
+            redirect('siswa/test/post2');
+        }
+
         $data = $this->Pengisi_Model->getTest1('tbl_soal');
         $data = array('data' => $data);
 
         $this->load->view('siswa/post-test1', $data);
-
     }
 
     public function tambah_post1()
@@ -263,6 +274,13 @@ class Test extends CI_Controller {
 
     public function post2()
     {
+        $username = $this->session->userdata('user_name');
+        $cek2 = $this->Pengisi_Model->getKategori('6', $username)->num_rows();
+        if($cek2>0)
+        {
+            redirect('siswa/test/post3');
+        } 
+
         $data = $this->Pengisi_Model->getTest2('tbl_soal');
         $data = array('data' => $data);
 
@@ -302,6 +320,13 @@ class Test extends CI_Controller {
 
     public function post3()
     {
+        $username = $this->session->userdata('user_name');
+        $cek3 = $this->Pengisi_Model->getKategori('7', $username)->num_rows();
+        if($cek3>0)
+        {
+            redirect('siswa/test/post4');
+        }
+
         $data = $this->Pengisi_Model->getTest3('tbl_soal');
         $data = array('data' => $data);
 
@@ -341,6 +366,13 @@ class Test extends CI_Controller {
 
     public function post4()
     {
+        $username = $this->session->userdata('user_name');
+        $cek = $this->Pengisi_Model->getKategori('8', $username)->num_rows();
+        if($cek=0)
+        {
+            redirect('siswa/test/end_post');
+        }
+
         $data = $this->Pengisi_Model->getTest4('tbl_soal');
         $data = array('data' => $data);
 
@@ -379,6 +411,11 @@ class Test extends CI_Controller {
         else{
             echo "Gagal disimpan";
         }
+    }
+
+    public function end_post()
+    {
+        $this->load->view('siswa/end-post');
     }
 
 }
