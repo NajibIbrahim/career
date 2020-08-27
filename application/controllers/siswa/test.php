@@ -77,11 +77,10 @@ class Test extends CI_Controller {
         if($cek2>0)
         {
             redirect('siswa/test/pre3');
-        } else {
-            redirect('siswa/test/pre1');
-        }
-
-
+        } 
+        // else {
+        //     redirect('siswa/test/pre1');
+        // }
 
         $data = $this->Pengisi_Model->getTest2('tbl_soal');
         $data = array('data' => $data);
@@ -128,10 +127,11 @@ class Test extends CI_Controller {
         if($cek3>0)
         {
             redirect('siswa/test/pre4');
-        }elseif($cek4<=0)
-        {
-            redirect('siswa/test/pre2');
         }
+        // elseif($cek4<=0)
+        // {
+        //     redirect('siswa/test/pre2');
+        // }
 
         $data = $this->Pengisi_Model->getTest3('tbl_soal');
         $data = array('data' => $data);
