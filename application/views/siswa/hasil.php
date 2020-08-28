@@ -75,7 +75,7 @@ $this->load->view('siswa/header');
                     }elseif($pre1>$post1){
                       echo "Menurun";
                     }else{
-                      echo "Belum Mengisi";
+                      echo "-";
                     }
                     ?>
                   </td>
