@@ -45,17 +45,8 @@ $this->load->view('siswa/header');
                   <?php
                   $user_bro = $this->session->userdata('user_name');
                   ?>
-                  <?php
-                    if($pre1>0)
-                    {
-                      $a = $this->Pengisi_Model->getKategori('1', $username)->result();
-                    }elseif($pre1<=0)
-                    {
-                      echo 'b';
-                    }
-                  ?>
             
-                  <!-- <?php foreach ($pre1 as $hasil): ?>
+                 <?php foreach ($pre1 as $hasil): ?>
 
                     <?php
                     if(($hasil->username == $user_bro) && ($hasil->id_kategori == 1)){
@@ -63,7 +54,7 @@ $this->load->view('siswa/header');
                     }else if (($hasil->username == $user_bro) && (!$hasil->id_kategori == 1)) {
                       echo "-";
                     }
-                    ?> -->
+                    ?>
 
                   <?php endforeach; ?>
                 </td>
