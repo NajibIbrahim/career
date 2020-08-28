@@ -16,7 +16,7 @@ class Materi extends CI_Controller {
 
     public function index()
     {
-        $data = $this->Materi_Model->Get('materi');
+        $data = $this->Materi_Model->getSiswa('materi');
         $data = array('data' => $data);
 
         $this->load->view('siswa/materi', $data);

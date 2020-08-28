@@ -39,7 +39,7 @@ $this->load->view('siswa/header');
                         <td><?= $no++; ?></td>
                         <td><?= $materi['nama_materi'];?></td>
                         <td>
-                          <a href="<?= base_url(); ?>assets/login/materi/<?= $materi['file'];?>" class="btn btn-sm btn-primary">DOWNLOAD MATERI</a>
+                          <a href="<?= base_url(); ?>assets/login/materi/<?= $materi['nama_file'];?>" class="btn btn-sm btn-primary">DOWNLOAD MATERI</a>
                         </td>
                       </tr>
                       <?php

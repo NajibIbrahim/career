@@ -33,7 +33,7 @@ $this->load->view('admin/header');
                   <th scope="col" width="20px">No</th>
                   <th scope="col">Nama</th>
                   <th scope="col">Kategori</th>
-                  <th width="30px">Nilai</th>
+                  <th width="70px">Nilai</th>
                   <th width="30px">Aksi</th>
                 </tr>
               </thead>
@@ -44,7 +44,29 @@ $this->load->view('admin/header');
                   <tr>
                     <td><?= $no++; ?></td>
                     <td><?= $pengisi['username']; ?></td>
-                    <td><?= $pengisi['kategori']; ?></td>
+                    <td><?php 
+                    $a = $pengisi['id_kategori'];
+                    if($a=='1'){
+                      echo "Pre Test 1";
+                    }elseif($a=='2'){
+                      echo "Pre Test 2";
+                    }elseif($a=='3'){
+                      echo "Pre Test 3";
+                    }elseif($a=='4'){
+                      echo "Pre Test 4";
+                    }elseif($a=='5'){
+                      echo "Post Test 1";
+                    }elseif($a=='6'){
+                      echo "Post Test 2";
+                    }elseif($a=='7'){
+                      echo "Post Test 3";
+                    }elseif($a=='8'){
+                      echo "Post Test 4";
+                    }else{
+                      echo "-";
+                    }                     
+                    
+                    ?></td>
                     <td><?= $pengisi['total_jawab']; ?></td>
                     <td>
                       <a href="<?php echo site_url('admin/pengisi/lihat/'.$pengisi['id_pengisi']) ?>" class="btn btn-sm btn-primary">DETAIL</a>

@@ -78,6 +78,15 @@ class Materi_Model extends CI_Model {
     return TRUE;
   }
 
+  public function getSiswa($table)
+	{
+		$this->db->select('*');
+		$this->db->from($table);
+		$this->db->where('akses','siswa');
+
+		$res = $this->db->get();
+		return $res->result_array();
+	}
 
 }
 ?>

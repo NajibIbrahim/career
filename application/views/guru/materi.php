@@ -39,7 +39,7 @@ $this->load->view('guru/header');
                         <td><?php echo $no++; ?></td>
                         <td><?php echo $materi['nama_materi'];?></td>
                         <td>
-                          <a href="<?php echo base_url(); ?>assets/login/materi/<?php echo $materi['file'];?>" class="btn btn-sm btn-primary">DOWNLOAD MATERI</a>
+                          <a href="<?php echo base_url(); ?>assets/login/materi/<?php echo $materi['nama_file'];?>" class="btn btn-sm btn-primary">DOWNLOAD MATERI</a>
                         </td>
                       </tr>
                       <?php
