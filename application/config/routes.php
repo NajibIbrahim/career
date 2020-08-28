@@ -53,3 +53,4 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['admin/tambah_materi'] = 'admin/Materi/aksi_tambah';
+$route['admin/getMateri/(:any)'] = 'admin/Materi/getMateri/$1';

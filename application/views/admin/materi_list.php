@@ -25,13 +25,16 @@ div.dataTables_wrapper div.dataTables_info {
     margin-left: 20px;
     margin-bottom: 10px;
 }
+#hasError{
+  color: red;
+}
 </style>
 <!-- Header -->
 <div class="header pb-8 pt-5 pt-md-0">
 
 </div>
 <!-- <div class="container-fluid mt--7"> -->
-  <div class="container-fluid mt--9">
+  <div class="container-fluid mt--9" id="frm-tabel-materi">
     <div class="row mt-2">
       <div class="col-xl-12 mb-5 mb-xl-0">
         <div class="card shadow">
@@ -64,8 +67,8 @@ div.dataTables_wrapper div.dataTables_info {
                   <td><?php echo $materi['akses']; ?></td>
                   <td>
                     <a href="<?= base_url(); ?>assets/login/materi/<?= $materi['nama_file'];?>" class="btn btn-sm btn-success">DOWNLOAD</a>
-                    <a href="<?php echo site_url('admin/materi/edit/'.$materi['id_materi']) ?>" class="btn btn-sm btn-primary">EDIT</a>
-                    <a href="<?php echo site_url('admin/materi/hapus/'.$materi['id_materi']) ?>" class="btn btn-sm btn-danger">HAPUS</a>
+                    <a href="<?php echo site_url('admin/materi/edit/'.$materi['id_materi']) ?>" class="btn btn-sm btn-primary" >EDIT</a>
+                    <a href="<?php echo base_url() ?>admin/materi/hapus/<?=$materi['id_materi']?>/<?$materi['nama_file']?>" class="btn btn-sm btn-danger">HAPUS</a>
                   </td>
                 </tr>
               <?php endforeach; ?>
@@ -75,6 +78,7 @@ div.dataTables_wrapper div.dataTables_info {
       </div>
     </div>
   </div>
+
 
 
   <?php

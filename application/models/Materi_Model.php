@@ -31,7 +31,7 @@ class Materi_Model extends CI_Model {
         'akses' => $akses,
         'nama_file' => $file
     );
-    $result = $this->db->inser('materi', $data);
+    $result = $this->db->insert('materi', $data);
     return $result;
   }
 
@@ -48,17 +48,34 @@ class Materi_Model extends CI_Model {
     $this->db->update($this->table,$data);
   }
 
-  public function delete($id)
-  {
-    $this->_deleteImage($id);
-    return $this->db->delete($this->_table, array("id_materi" => $id));
-  }
+  // public function delete($id)
+  // {
+  //   $this->_deleteImage($id);
+  //   return $this->db->delete($this->_table, array("id_materi" => $id));
+  // }
 
   private function deleteImage($id)
   {
     $materi = $this->ambil_data_id($id);
     $filename = explode(".", $materi->file)[0];
     return array_map('unlink', glob(FCPATH."./assets/login/materi/$filename.*"));
+  }
+
+  public function tampilUbahMateri($id){
+    return $this->db->select('*')
+                    ->where('id_materi', $id)
+                    ->get($this->table);
+  }
+
+  public function updateMateri($data, $case){
+    $this->db->update($this->table, $data, $case);
+    return TRUE;
+  }
+
+  public function delete($where){
+    $this->db->where($where);
+    $this->db->delete($this->table);
+    return TRUE;
   }
 
 

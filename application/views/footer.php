@@ -34,6 +34,7 @@
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">
+
       $(document).ready(function() {
 
         $('#submit').submit(function(e){
@@ -52,6 +53,29 @@
                 alert("Upload berhasil");
               }
             });
+        });
+
+        $("#btn-edit-materi").click(function(e){
+          e.preventDefault();
+          // var link = $(this).attr("href");
+          // var id = link.substring(link.lastIndexOf('/')+1);
+          // $.ajax({
+          //   url: "<?php echo base_url(); ?>admin/getMateri/"+id,
+          //   type: "POST",
+          //   dataType: "JSON",
+          //   success: function(data){
+          //     $("#frm-tabel-materi").hide();
+          //     $("#frm-edit-materi").show();
+          //     $("#form-title").html("EDIT MATERI "+data.nama_materi);
+          //     $("#nama_materi").val(data.nama_materi);
+          //     $(".custom-file-label").html(data.nama_file);
+          //   }
+          // });
+        });
+
+        $("#batal").click(function(){
+          $("#frm-tabel-materi").show();
+          $("#frm-edit-materi").hide();
         });
 
         $('#example').DataTable({

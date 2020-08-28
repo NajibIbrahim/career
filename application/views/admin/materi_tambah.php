@@ -30,7 +30,7 @@ $this->load->view('admin/header');
 
 </div>
 <!-- <div class="container-fluid mt--7"> -->
-  <div class="container-fluid mt--9">
+  <div class="container-fluid mt--9" id="frm-tambah-edit">
     <div class="row">
       <div class="col-lg-12">
         <div class="card bg-secondary shadow border-0">

@@ -97,6 +97,46 @@ public function aksi_tambah(){
 	$this->Materi_Model->insert($data);
 }
 
+public function notification($notif){
+	$alert = "<script type='text/javascript'>alert('hello');</script>";
+	return $alert;
+}
+
+public function updateData(){
+	$id = $this->input->post('id_materi');
+	$nama_materi = $this->input->post('nama_materi');
+	$akses = $this->input->post('akses');
+
+	$path = './assets/login/materi';
+
+	$case = array('id_materi' => $id);
+
+	$config['upload_path'] = './assets/login/materi';
+	$config['allowed_types'] = 'jpg|png|jpeg|pptx|docx|pdf|mp4';
+	$config['file_name'] = $_FILES['file']['name'];
+
+	$this->upload->initialize($config);
+
+	if(!empty($_FILES['file']['name'])){
+		if($this->upload->do_upload('file')){
+			$file = $this->upload->data();
+			$data = array(
+				'nama_materi' => $nama_materi,
+				'nama_file' => $file['file_name'],
+				'akses' => $akses,
+			);
+
+			@unlink($path.$this->input->post('file-lama'));
+			$this->Materi_Model->updateMateri($data, $case);
+			redirect('admin/materi');
+		}else{
+			echo "failed";
+		}
+	}else{
+		"not save";
+	}
+}
+
 public function edit($id)
 {
  $materi=($this->Materi_Model->ambil_data_id($id));
@@ -123,13 +163,17 @@ public function aksi_edit()
  redirect(site_url('admin/akun'));
 }
 
-public function hapus($id){
-  $gambar = $this->Materi_Model->gambar($id);
-  unlink('assets/login/materi/'.$gambar->gambar);
+public function hapus($id, $file){
+  $path = '.assets/login/materi/';
+	@unlink($path.$foto);
 
-  $this->Materi_Model->hapus($id);
-  redirect('admin/akun');
+	$where = array('id_materi' => $id);
+	$this->Materi_Model->delete($where);
+	redirect('admin/materi');
 }
+
+
+
 
 
 
