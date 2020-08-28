@@ -33,7 +33,7 @@ $this->load->view('siswa/header');
               <div class="form-group">
 
                 <input type="hidden" name="username" value="<?= $this->session->userdata("user_name") ?>">
-                <input type="hidden" name="id_kategori" value="pre-kat4">
+                <input type="hidden" name="id_kategori" value="4">
                 <p class=""><b><b><?= $no++; ?>. </b><?= $soal['soal'];?></b></p>
 
                 <!-- //Jawaban -->

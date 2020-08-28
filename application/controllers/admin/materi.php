@@ -102,6 +102,19 @@ public function notification($notif){
 	return $alert;
 }
 
+public function edit($id)
+{
+ $materi=($this->Materi_Model->ambil_data_id($id));
+ $data = array(
+  'id_materi'   => set_value('id_materi',$materi->id_materi),
+  'nama_materi' => set_value('nama_materi',$materi->nama_materi),
+  'akses'       => set_value('akses',$materi->akses),
+  'nama_file'   => set_value('nama_file',$materi->nama_file),
+  'action' 	  => site_url('admin/materi/updateData')
+);
+ $this->load->view('admin/materi_edit', $data);
+}
+
 public function updateData(){
 	$id = $this->input->post('id_materi');
 	$nama_materi = $this->input->post('nama_materi');
@@ -137,31 +150,6 @@ public function updateData(){
 	}
 }
 
-public function edit($id)
-{
- $materi=($this->Materi_Model->ambil_data_id($id));
- $data = array(
-  'id_materi'   => set_value('id_materi',$materi->id_materi),
-  'nama_materi' => set_value('nama_materi',$materi->nama_materi),
-  'akses'       => set_value('akses',$materi->akses),
-  'nama_file'   => set_value('nama_file',$materi->nama_file),
-  'action' 	  => site_url('admin/materi/aksi_edit')
-);
- $this->load->view('admin/materi_edit', $data);
-}
-
-public function aksi_edit()
-{
- $data = array(
-  'nama'     => $this->input->post('nama'),
-  'ket'      => $this->input->post('ket'),
-  'username' => $this->input->post('username'),
-  'level'    => $this->input->post('level')
-);
- $id_akun = $this->input->post('id_akun');
- $this->Akun_Model->edit_data($id_akun,$data);
- redirect(site_url('admin/akun'));
-}
 
 public function hapus($id, $file){
   $path = '.assets/login/materi/';

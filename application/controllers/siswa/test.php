@@ -122,8 +122,8 @@ class Test extends CI_Controller {
     public function pre3()
     {
         $username = $this->session->userdata('user_name');
-        $cek3 = $this->Pengisi_Model->getKategori('2', $username)->num_rows();
-        $cek4 = $this->Pengisi_Model->getKategori('3', $username)->num_rows();
+        $cek3 = $this->Pengisi_Model->getKategori('3', $username)->num_rows();
+        // $cek4 = $this->Pengisi_Model->getKategori('3', $username)->num_rows();
         if($cek3>0)
         {
             redirect('siswa/test/pre4');

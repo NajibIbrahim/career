@@ -45,30 +45,36 @@ $this->load->view('siswa/header');
                   <?php
                   $user_bro = $this->session->userdata('user_name');
                   ?>
-                  <?php foreach ($pre1 as $hasil): ?>
-                    
+                  <?php
+                    if($pre1>0)
+                    {
+                      $a = $this->Pengisi_Model->getKategori('1', $username)->result();
+                    }elseif($pre1<=0)
+                    {
+                      echo 'b';
+                    }
+                  ?>
+            
+                  <!-- <?php foreach ($pre1 as $hasil): ?>
+
                     <?php
                     if(($hasil->username == $user_bro) && ($hasil->id_kategori == 1)){
-                      // if(($hasil->username == $user_bro) && (!$hasil->id_kategori == 1)){
                         echo $hasil->total_jawab;
                     }else if (($hasil->username == $user_bro) && (!$hasil->id_kategori == 1)) {
                       echo "-";
                     }
-                    ?>
+                    ?> -->
 
                   <?php endforeach; ?>
                 </td>
                 <td>
-
-
-
-<!--                   <?php foreach ($post_kat1 as $hasil): ?>
+                   <?php foreach ($post1 as $hasil): ?>
                     <?php $post1=$hasil->total_jawab;?> 
                     <?= $hasil->total_jawab;?>
-                    <?php endforeach; ?> -->
+                    <?php endforeach; ?>
                   </td>
                   <td>
-<!--                     <?php 
+                     <?php 
                     if($post1==''){
                       echo "Belum Mengisi";
                     }elseif($pre1<$post1){
@@ -80,62 +86,38 @@ $this->load->view('siswa/header');
                     }else{
                       echo "Belum Mengisi";
                     }
-                    ?> -->
+                    ?>
                   </td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>Menetapkan tujuan karir</td>
                   <td>
-<!--                   <?php foreach ($pre_kat2 as $hasil): ?>
-                    <?php $pre2=$hasil->total_jawab;?> 
-                    <?= $hasil->total_jawab;?>
-                    <?php endforeach; ?> -->
 
-<!--                     <?php foreach ($username as $data): ?>
-                      <?= $data->username;?>
-                      <?php endforeach; ?> -->
+
                     </td>
                     <td>
-<!--                   <?php foreach ($post_kat2 as $hasil): ?>
-                    <?php $post2=$hasil->total_jawab;?> 
-                    <?= $hasil->total_jawab;?>
-                    <?php endforeach; ?> -->
+
                   </td>
                   <td>
-<!--                     <?php 
-                    if($post2==''){
-                      echo "Belum Mengisi";
-                    }elseif($pre2<$post2){
-                      echo "Meningkat";
-                    }elseif($pre2==$post2){
-                      echo "Sama";
-                    }elseif($pre2>$post2){
-                      echo "Menurun";
-                    }else{
-                      echo "Belum Mengisi";
-                    }
-                    ?> -->
+
                   </td>
                 </tr>
                 <tr>
                   <td>3</td>
                   <td>Menilai ketrampilan</td>
                   <td>
-           <!--          <?php foreach ($username as $data): ?>
-                      <?= $data->username;?>
-                    <?php endforeach; ?> -->
 
-<!--                   <?php foreach ($pre_kat3 as $hasil): ?>
+<?php foreach ($pre3 as $hasil): ?>
                     <?php $pre3=$hasil->total_jawab;?> 
                     <?= $hasil->total_jawab;?>
-                    <?php endforeach; ?> -->
+                    <?php endforeach; ?> 
                   </td>
                   <td>
-<!--                   <?php foreach ($post_kat3 as $hasil): ?>
+                  <?php foreach ($post3 as $hasil): ?>
                     <?php $post3=$hasil->total_jawab;?> 
                     <?= $hasil->total_jawab;?>
-                    <?php endforeach; ?> -->
+                    <?php endforeach; ?>
                   </td>
                   <td>
 <!--                     <?php 
@@ -157,10 +139,6 @@ $this->load->view('siswa/header');
                   <td>4</td>
                   <td>Membuat perencanaan karir</td>
                   <td>
-<!--                     <?php foreach ($username as $data): ?>
-                      <?= $data->username;?>
-                      <?php endforeach; ?> -->
-
 <!--                   <?php foreach ($pre_kat4 as $hasil): ?>
                     <?php $pre4=$hasil->total_jawab;?> 
                     <?= $hasil->total_jawab;?>

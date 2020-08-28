@@ -20,15 +20,19 @@ class Hasil extends CI_Controller {
         $username = $this->session->userdata('user_name');
         $data['username']=$this->Pengisi_Model->getUsername($username)->result();
         
-        $data['pre1'] = $this->Pengisi_Model->getKategori('1', $username)->result();
-        // var_dump($data);
+        $data['pre1'] = $this->Pengisi_Model->getKategori('1', $username)->num_rows();
+        if($data['pre1']<=0)
+        {
+            echo'Belum Mengisi';
+        }
         // $data['pre2'] = $this->Pengisi_Model->getKategori('2', $username)->result();
-        // $data['pre1'] = $this->Pengisi_Model->getKategori('1')->result();
-        // $data['pre4'] = $this->Pengisi_Model->getKategori('4')->result();
-        // $data['post1'] = $this->Pengisi_Model->getKategori('5')->result();
-        // $data['post2'] = $this->Pengisi_Model->getKategori('6')->result();
-        // $data['post3'] = $this->Pengisi_Model->getKategori('7')->result();
-        // $data['post4'] = $this->Pengisi_Model->getKategori('8')->result();
+        // $data['pre3'] = $this->Pengisi_Model->getKategori('3', $username)->result();
+        // $data['pre4'] = $this->Pengisi_Model->getKategori('4', $username)->result();
+        // $data['post1'] = $this->Pengisi_Model->getKategori('5', $username)->result();
+        // $data['post2'] = $this->Pengisi_Model->getKategori('6', $username)->result();
+        // $data['post3'] = $this->Pengisi_Model->getKategori('7', $username)->result();
+        // $data['post4'] = $this->Pengisi_Model->getKategori('8', $username)->result();
+
         $this->load->view('siswa/hasil', $data);
     }
 

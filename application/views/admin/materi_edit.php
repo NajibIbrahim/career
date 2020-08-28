@@ -2,6 +2,28 @@
 $this->load->view('admin/header');
 ?>
 
+<style>
+.custom-file-label::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    display: block;
+    height: 2.75rem;
+    padding: 0.625rem 0.75rem;
+    line-height: 1.5;
+    color: white;
+    content: "Browse";
+    background-color: #007bff;
+    border-left: 1px solid #cad1d7;
+    border-radius: 0 0.375rem 0.375rem 0;
+    cursor: pointer !important;
+}
+#hasError{
+  color: red;
+}
+</style>
 
 <!-- Header -->
 <div class="header pb-8 pt-5 pt-md-0">
@@ -56,7 +78,6 @@ $this->load->view('admin/header');
         </div>
       </div>
     </div>
-  </div>
 
 
 
