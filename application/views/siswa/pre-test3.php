@@ -33,12 +33,12 @@ $this->load->view('siswa/header');
               <div class="form-group">
 
                 <input type="hidden" name="username" value="<?= $this->session->userdata("user_name") ?>">
-                <input type="hidden" name="kategori" value="pre-kat3">
+                <input type="hidden" name="id_kategori" value="pre-kat3">
                 <p class=""><b><b><?= $no++; ?>. </b><?= $soal['soal'];?></b></p>
 
                 <!-- //Jawaban -->
                 <div class="custom-control custom-radio mb-3">
-                  <input name="j<?= $soal['no_soal'];?>" class="custom-control-input" id="4<?= $soal['no_soal'];?>" type="radio" value="4" required>
+                  <input name="j<?= $soal['no_soal'];?>" class="custom-control-input" id="4<?= $soal['no_soal'];?>" type="radio" value="4">
                   <label class="custom-control-label" for="4<?= $soal['no_soal'];?>">Sangat Sesuai</label>
                 </div>
                 <div class="custom-control custom-radio mb-3">

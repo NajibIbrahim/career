@@ -44,26 +44,16 @@ $this->load->view('siswa/header');
 
                   <?php
                   $user_bro = $this->session->userdata('user_name');
-                  // var_dump($user_bro);
                   ?>
                   <?php foreach ($pre1 as $hasil): ?>
                     
                     <?php
-                    if(($hasil->username == $user_bro) && (!$hasil->id_kategori == 1)){
-                      echo "0";
-                    }else if (($hasil->username == $user_bro) && ($hasil->id_kategori == 1)) {
-                      echo $hasil->total_jawab;
+                    if(($hasil->username == $user_bro) && ($hasil->id_kategori == 1)){
+                      // if(($hasil->username == $user_bro) && (!$hasil->id_kategori == 1)){
+                        echo $hasil->total_jawab;
+                    }else if (($hasil->username == $user_bro) && (!$hasil->id_kategori == 1)) {
+                      echo "-";
                     }
-                    // if($user_bro != ""){
-                    //   if($user_bro == $hasil->username && $hasil->id_kategori == '1'){
-                    //     echo $hasil->total_jawab;
-                    //   }else if($user_bro != $hasil->username or $hasil->id_kategori != '1'){
-                    //     echo "a";
-                    //   }
-                    // }else{
-                    //   echo "username tidak ditemukan";
-                    // }
-
                     ?>
 
                   <?php endforeach; ?>
