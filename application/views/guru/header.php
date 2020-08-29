@@ -93,7 +93,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link " href="<?php echo base_url(); ?>guru/pengisi">
-              <i class="ni ni-collection text-blue"></i> Hasil Test
+              <i class="ni ni-collection text-blue"></i> Pengisi Test
             </a>
           </li>
           <li class="nav-item">

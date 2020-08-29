@@ -20,11 +20,11 @@ class Pengisi extends CI_Controller {
 		$data = $this->Akun_Model->Get('pengisi');
 		$data = array('data' => $data);
 
-		$this->load->view('admin/pengisi_list', $data);
+		$this->load->view('guru/pengisi_list', $data);
 	}
 
 	public function lihat()
 	{
-		$this->load->view('admin/pengisi_lihat');
+		$this->load->view('guru/pengisi_lihat');
 	}
 }
