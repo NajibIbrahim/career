@@ -174,7 +174,7 @@ class Test extends CI_Controller {
     {
         $username = $this->session->userdata('user_name');
         $cek = $this->Pengisi_Model->getKategori('4', $username)->num_rows();
-        if($cek=0)
+        if($cek>0)
         {
             redirect('siswa/test/end_pre');
         }
@@ -368,7 +368,7 @@ class Test extends CI_Controller {
     {
         $username = $this->session->userdata('user_name');
         $cek = $this->Pengisi_Model->getKategori('8', $username)->num_rows();
-        if($cek=0)
+        if($cek>0)
         {
             redirect('siswa/test/end_post');
         }

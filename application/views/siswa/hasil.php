@@ -189,7 +189,7 @@ $this->load->view('siswa/header');
                   </b></td>
                   <td><b>
                   <?php 
-                  if($post1!=NULL && $post2!=NULL && $post3!=NULL && $post!=NULL){
+                  if($post1!=NULL && $post2!=NULL && $post3!=NULL && $post4!=NULL){
                       $total_post=$post1+$post2+$post3+$post4;
                       echo "$total_post";
                   }
@@ -197,8 +197,10 @@ $this->load->view('siswa/header');
                   </b></td>
                   <td><b>
                   <?php
+                  if($pre1!=NULL && $pre2!=NULL && $pre3!=NULL && $pre4!=NULL && $post1!=NULL && $post2!=NULL && $post3!=NULL && $post4!=NULL){
+                  $total_pre=$pre1+$pre2+$pre3+$pre4;
                   $total_post=$post1+$post2+$post3+$post4;
-                    if($total_post==NULL || total_pre==NULL){
+                    if($total_post==NULL || $total_pre==NULL){
                       echo "Belum Mengisi Lengkap";
                     }elseif($total_pre<$total_post){
                       echo "Meningkat";
@@ -209,6 +211,7 @@ $this->load->view('siswa/header');
                     }else{
                       echo "-";
                     }
+                  }
                   ?>
                   </b></td>
                 </tr>
@@ -242,6 +245,7 @@ $this->load->view('siswa/header');
               <p><b><b>Post Test</b></b></p>
               <p style="text-align: justify;">
                 <?php 
+                if($post1!=NULL && $post2!=NULL && $post3!=NULL && $post4!=NULL){
                 $total_post=$post1+$post2+$post3+$post4;
                 if($total_post==''){
                   echo "Belum Mengisi";
@@ -256,7 +260,8 @@ $this->load->view('siswa/header');
                 }else{
                   echo "Belum Mengisi";
                 }
-                ?>
+              }
+              ?>
               </p>
               <hr class="my-4" />
             </div>
