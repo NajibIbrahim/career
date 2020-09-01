@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 24, 2020 at 07:01 AM
+-- Generation Time: Aug 30, 2020 at 05:30 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -21,20 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `career`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `jawaban`
---
-
-CREATE TABLE `jawaban` (
-  `id_jawaban` int(8) NOT NULL,
-  `no_soal` int(8) NOT NULL,
-  `jawaban` varchar(150) NOT NULL,
-  `point` int(4) NOT NULL,
-  `kategori` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -95,7 +81,10 @@ INSERT INTO `materi` (`id_materi`, `nama_materi`, `akses`, `nama_file`) VALUES
 (15, 'dd', 'Siswa', '1__RPL_DAN_MATERI_-_AKU_PASTI_BISA.docx'),
 (16, 'yy', 'Siswa', 'poster_TA_H-.png'),
 (17, 'asdfgh', 'Guru', 'Syarat_Pendaftaran.pdf'),
-(18, 'dd', 'Siswa', '1__RPL_DAN_MATERI_BK_-_PERANAN_KECERDASAN_(IQ-EQ-AQ-CQ-SQ)__DALAM_BELAJAR.docx');
+(18, 'dda', 'Guru', 'sint1.png'),
+(19, 'contoh materi', 'Guru', '1__RPL_DAN_MATERI_BK_-_PERANAN_KECERDASAN_(IQ-EQ-AQ-CQ-SQ)__DALAM_BELAJAR_(1).docx'),
+(20, 'contoh materi', 'Siswa', 'SKRIPSI_LUTHFINA.docx'),
+(21, 'contoh materi', 'Siswa', '1__RPL_DAN_MATERI_BK_-_PERANAN_KECERDASAN_(IQ-EQ-AQ-CQ-SQ)__DALAM_BELAJAR_(1)1.docx');
 
 -- --------------------------------------------------------
 
@@ -118,15 +107,7 @@ CREATE TABLE `pengisi` (
 
 INSERT INTO `pengisi` (`id_pengisi`, `username`, `id_kategori`, `jawaban`, `total_jawab`, `waktu`) VALUES
 (23, '9002345', '1', 'No 1 = 4 , No 2 = 4 , No 3 = 4 , No 4 = 4 , No 5 = 4 , No 6 = 4 , No 7 = 4 , No 8 = 4', 32, '2020-07-05 02:20:27'),
-(24, '9002345', '2', 'No 1 = 3 , No 2 = 3 , No 3 = 3 , No 4 = 3 , No 5 = 3 , No 6 = 3 , No 7 = 3', 21, '2020-07-05 02:47:27'),
-(25, '9002345', '3', 'No 1 = 2 , No 2 = 2 , No 3 = 2 , No 4 = 2 , No 5 = 2 , No 6 = 2 , No 7 = 2 , No 8 = 2 , No 9 = 2 , No 10 = 2 , No 11 = 2', 22, '2020-07-05 02:47:47'),
-(26, '9002345', '4', 'No 1 = 1 , No 2 = 1 , No 3 = 1 , No 4 = 1 , No 5 = 1 , No 6 = 1 , No 7 = 1 , No 8 = 1 , No 9 = 1 , No 10 = 1 , No 11 = 1 , No 12 = 1 , No 13 = 1 , No 14 = 1 , No 15 = 1 , No 16 = 1 , No 17 = 1 , No 18', 19, '2020-07-05 02:48:27'),
-(27, '9002345', '5', 'No 1 = 1 , No 2 = 1 , No 3 = 1 , No 4 = 1 , No 5 = 1 , No 6 = 1 , No 7 = 1 , No 8 = 1', 8, '2020-07-05 02:51:48'),
-(28, '9002345', '6', 'No 1 = 2 , No 2 = 2 , No 3 = 2 , No 4 = 2 , No 5 = 2 , No 6 = 2 , No 7 = 2', 14, '2020-07-05 02:52:42'),
-(31, '9002345', '7', 'No 1 = 3 , No 2 = 3 , No 3 = 3 , No 4 = 3 , No 5 = 3 , No 6 = 3 , No 7 = 3 , No 8 = 3 , No 9 = 3 , No 10 = 3 , No 11 = 3', 33, '2020-07-05 02:55:27'),
-(32, '9002345', '8', 'No 1 = 4 , No 2 = 4 , No 3 = 4 , No 4 = 4 , No 5 = 4 , No 6 = 4 , No 7 = 4 , No 8 = 4 , No 9 = 4 , No 10 = 4 , No 11 = 4 , No 12 = 4 , No 13 = 4 , No 14 = 4 , No 15 = 4 , No 16 = 4 , No 17 = 4 , No 18', 76, '2020-07-05 02:56:03'),
-(34, '9002340', '1', 'No 1 = 4 , No 2 = 4 , No 3 = 4 , No 4 = 4 , No 5 = 4 , No 6 = 4 , No 7 = 4 , No 8 = 4 , No 9 = 4 , No 10 = 4 , No 11 = 4 , No 12 = 4 , No 13 = 4 , No 14 = 4 , No 15 = 4 , No 16 = 4 , No 17 = 4 , No 18', 55, '2020-08-07 05:12:09'),
-(35, '9002340', '2', 'No 1 = 4 , No 2 = 4 , No 3 = 4 , No 4 = 4 , No 5 = 4 , No 6 = 4 , No 7 = 4 , No 8 = 4 , No 9 = 4 , No 10 = 4 , No 11 = 4 , No 12 = 4 , No 13 = 4 , No 14 = 4 , No 15 = 4 , No 16 = 4 , No 17 = 4 , No 18', 40, '2020-08-12 04:07:10');
+(24, '9002345', '5', 'No 1 = 1 , No 2 = 4 , No 3 = 4 , No 4 = 1 , No 5 = 2 , No 6 = 4 , No 7 = 4', 20, '2020-08-28 00:14:05');
 
 -- --------------------------------------------------------
 
@@ -150,8 +131,16 @@ CREATE TABLE `tbl_akun` (
 INSERT INTO `tbl_akun` (`id_akun`, `nama`, `ket`, `username`, `password`, `level`) VALUES
 (1, 'Najib Ibrahim', 'Kelas 12', '9002345', 'bcd724d15cde8c47650fda962968f102', 'siswa'),
 (2, 'Admin ', 'Administrator', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
-(3, 'Haris Yuftika Hani', 'Guru BK', '198916032009032003', '77e69c137812518e359196bb2f5e9bb9', 'guru'),
-(11, 'Satria', 'Kelas IX E', '2', 'bcd724d15cde8c47650fda962968f102', 'siswa');
+(3, 'Haris Yuftika Hani', 'Guru BK', 'guruBK1', '77e69c137812518e359196bb2f5e9bb9', 'guru'),
+(11, 'Nama Guru BK', 'Guru BK', 'guruBK2', '77e69c137812518e359196bb2f5e9bb9', 'guru'),
+(12, 'Nama Guru BK', 'Guru BK', 'guruBK3', '77e69c137812518e359196bb2f5e9bb9', 'guru'),
+(13, 'Nama Guru BK', 'Guru BK', 'guruBK4', '77e69c137812518e359196bb2f5e9bb9', 'guru'),
+(14, 'Nama Guru BK', 'Guru BK', 'guruBK5', '77e69c137812518e359196bb2f5e9bb9', 'guru'),
+(15, 'Nama Guru BK', 'Guru BK', 'guruBK6', '77e69c137812518e359196bb2f5e9bb9', 'guru'),
+(16, 'Nama Guru BK', 'Guru BK', 'guruBK7', '77e69c137812518e359196bb2f5e9bb9', 'guru'),
+(17, 'Nama Guru BK', 'Guru BK', 'guruBK8', '77e69c137812518e359196bb2f5e9bb9', 'guru'),
+(18, 'Nama Guru BK', 'Guru BK', 'guruBK9', '77e69c137812518e359196bb2f5e9bb9', 'guru'),
+(19, 'Nama Guru BK', 'Guru BK', 'guruBK10', '77e69c137812518e359196bb2f5e9bb9', 'guru');
 
 -- --------------------------------------------------------
 
@@ -242,12 +231,6 @@ INSERT INTO `tbl_soal` (`id_soal`, `no_soal`, `soal`, `kategori`) VALUES
 --
 
 --
--- Indexes for table `jawaban`
---
-ALTER TABLE `jawaban`
-  ADD PRIMARY KEY (`id_jawaban`);
-
---
 -- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
@@ -288,12 +271,6 @@ ALTER TABLE `tbl_soal`
 --
 
 --
--- AUTO_INCREMENT for table `jawaban`
---
-ALTER TABLE `jawaban`
-  MODIFY `id_jawaban` int(8) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
@@ -303,19 +280,19 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT for table `materi`
 --
 ALTER TABLE `materi`
-  MODIFY `id_materi` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_materi` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `pengisi`
 --
 ALTER TABLE `pengisi`
-  MODIFY `id_pengisi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_pengisi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tbl_akun`
 --
 ALTER TABLE `tbl_akun`
-  MODIFY `id_akun` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_akun` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tbl_level`
