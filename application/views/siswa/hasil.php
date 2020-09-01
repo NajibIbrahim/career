@@ -41,13 +41,15 @@ $this->load->view('siswa/header');
                 <td>1</td>
                 <td>Mengenal karakteristik pribadi</td>
                 <td>
+                <?php foreach ($pre1 as $hasil): ?>
+                    <?php $pre1=$hasil->total_jawab;?> 
+                    <?= $hasil->total_jawab;?>
+                <?php endforeach; ?>
 
-                  <?php
+                  <!-- <?php
                   $user_bro = $this->session->userdata('user_name');
                   ?>
-            
-                 <?php foreach ($pre1 as $hasil): ?>
-
+                  <?php foreach ($pre1 as $hasil): ?>
                     <?php
                     if(($hasil->username == $user_bro) && ($hasil->id_kategori == 1)){
                         echo $hasil->total_jawab;
@@ -55,19 +57,18 @@ $this->load->view('siswa/header');
                       echo "-";
                     }
                     ?>
-
-                  <?php endforeach; ?>
+                  <?php endforeach; ?> -->
                 </td>
                 <td>
-                   <?php foreach ($post1 as $hasil): ?>
+                <?php foreach ($post1 as $hasil): ?>
                     <?php $post1=$hasil->total_jawab;?> 
                     <?= $hasil->total_jawab;?>
-                    <?php endforeach; ?>
-                  </td>
-                  <td>
+                <?php endforeach; ?>
+                </td>
+                <td>
                      <?php 
-                    if($post1==''){
-                      echo "Belum Mengisi";
+                    if($pre1==NULL || $post1==NULL){
+                      echo "Belum Mengisi Lengkap";
                     }elseif($pre1<$post1){
                       echo "Meningkat";
                     }elseif($pre1==$post1){
@@ -78,42 +79,58 @@ $this->load->view('siswa/header');
                       echo "-";
                     }
                     ?>
-                  </td>
+                </td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>Menetapkan tujuan karir</td>
                   <td>
-
-
-                    </td>
-                    <td>
-
+                  <?php foreach ($pre2 as $hasil): ?>
+                    <?php $pre2=$hasil->total_jawab;?> 
+                    <?= $hasil->total_jawab;?>
+                <?php endforeach; ?>
                   </td>
                   <td>
-
+                  <?php foreach ($post2 as $hasil): ?>
+                    <?php $post2=$hasil->total_jawab;?> 
+                    <?= $hasil->total_jawab;?>
+                <?php endforeach; ?>
+                  </td>
+                  <td>
+                  <?php 
+                    if($pre2==NULL || $post2==NULL){
+                      echo "Belum Mengisi Lengkap";
+                    }elseif($pre2<$post2){
+                      echo "Meningkat";
+                    }elseif($pre2==$post2){
+                      echo "Sama";
+                    }elseif($pre2>$post2){
+                      echo "Menurun";
+                    }else{
+                      echo "-";
+                    }
+                    ?>
                   </td>
                 </tr>
                 <tr>
                   <td>3</td>
                   <td>Menilai ketrampilan</td>
-                  <td>
-
-<?php foreach ($pre3 as $hasil): ?>
+                  <td> 
+                  <?php foreach ($pre3 as $hasil): ?>
                     <?php $pre3=$hasil->total_jawab;?> 
                     <?= $hasil->total_jawab;?>
-                    <?php endforeach; ?> 
+                <?php endforeach; ?>
                   </td>
                   <td>
                   <?php foreach ($post3 as $hasil): ?>
                     <?php $post3=$hasil->total_jawab;?> 
                     <?= $hasil->total_jawab;?>
-                    <?php endforeach; ?>
+                <?php endforeach; ?>
                   </td>
                   <td>
-<!--                     <?php 
-                    if($post3==''){
-                      echo "Belum Mengisi";
+                  <?php 
+                    if($pre3==NULL || $post3==NULL){
+                      echo "Belum Mengisi Lengkapi";
                     }elseif($pre3<$post3){
                       echo "Meningkat";
                     }elseif($pre3==$post3){
@@ -121,30 +138,30 @@ $this->load->view('siswa/header');
                     }elseif($pre3>$post3){
                       echo "Menurun";
                     }else{
-                      echo "Belum Mengisi";
+                      echo "-";
                     }
-                    ?> -->
+                    ?>
                   </td>
                 </tr>
                 <tr>
                   <td>4</td>
                   <td>Membuat perencanaan karir</td>
                   <td>
-<!--                   <?php foreach ($pre_kat4 as $hasil): ?>
+                  <?php foreach ($pre4 as $hasil): ?>
                     <?php $pre4=$hasil->total_jawab;?> 
                     <?= $hasil->total_jawab;?>
-                    <?php endforeach; ?> -->
+                <?php endforeach; ?>
                   </td>
                   <td>
-<!--                   <?php foreach ($post_kat4 as $hasil): ?>
+                  <?php foreach ($post4 as $hasil): ?>
                     <?php $post4=$hasil->total_jawab;?> 
                     <?= $hasil->total_jawab;?>
-                    <?php endforeach; ?> -->
+                <?php endforeach; ?>
                   </td>
                   <td>
-<!--                     <?php 
-                    if($post4==''){
-                      echo "Belum Mengisi";
+                  <?php 
+                    if($pre4==NULL || $post4==NULL){
+                      echo "Belum Mengisi Lengkap";
                     }elseif($pre4<$post4){
                       echo "Meningkat";
                     }elseif($pre4==$post4){
@@ -152,9 +169,9 @@ $this->load->view('siswa/header');
                     }elseif($pre4>$post4){
                       echo "Menurun";
                     }else{
-                      echo "Belum Mengisi";
+                      echo "-";
                     }
-                    ?> -->
+                    ?>
                   </td>
                 </tr>
               </tbody>
@@ -163,18 +180,37 @@ $this->load->view('siswa/header');
                   <td width="20px"></td>
                   <td><b>Total</b></td>
                   <td><b>
-<!--                     <?php 
-                    $total_pre=$pre1+$pre2+$pre3+$pre4;
-                    echo $total_pre;
-                    ?> --> 
+                  <?php 
+                  if($pre1!=NULL && $pre2!=NULL && $pre3!=NULL && $pre4!=NULL){
+                      $total_pre=$pre1+$pre2+$pre3+$pre4;
+                      echo "$total_pre";
+                  }
+                  ?>
                   </b></td>
                   <td><b>
-<!--                     <?php 
-                    $total_post=$post1+$post2+$post3+$post4;
-                    echo $total_post;
-                    ?>  -->
+                  <?php 
+                  if($post1!=NULL && $post2!=NULL && $post3!=NULL && $post!=NULL){
+                      $total_post=$post1+$post2+$post3+$post4;
+                      echo "$total_post";
+                  }
+                  ?>
                   </b></td>
-                  <td><b>Meningkat</b></td>
+                  <td><b>
+                  <?php
+                  $total_post=$post1+$post2+$post3+$post4;
+                    if($total_post==NULL || total_pre==NULL){
+                      echo "Belum Mengisi Lengkap";
+                    }elseif($total_pre<$total_post){
+                      echo "Meningkat";
+                    }elseif($total_pre==$total_post){
+                      echo "Sama";
+                    }elseif($total_pre>$total_post){
+                      echo "Menurun";
+                    }else{
+                      echo "-";
+                    }
+                  ?>
+                  </b></td>
                 </tr>
               </thead>
             </table>
@@ -182,7 +218,8 @@ $this->load->view('siswa/header');
               <hr class="my-4" />
               <p><b><b>Pre Test</b></b></p>
               <p style="text-align: justify;">
-<!--                 <?php 
+                <?php 
+                if($pre1!=NULL && $pre2!=NULL && $pre3!=NULL && $pre4!=NULL){
                 $total_pre=$pre1+$pre2+$pre3+$pre4;
                 if($total_pre==''){
                   echo "Belum Mengisi";
@@ -197,13 +234,14 @@ $this->load->view('siswa/header');
                 }else{
                   echo "Belum Mengisi";
                 }
-                ?> -->
+              }
+                ?>
               </p>
               <hr class="my-4" />
 
               <p><b><b>Post Test</b></b></p>
               <p style="text-align: justify;">
-<!--                 <?php 
+                <?php 
                 $total_post=$post1+$post2+$post3+$post4;
                 if($total_post==''){
                   echo "Belum Mengisi";
@@ -218,7 +256,7 @@ $this->load->view('siswa/header');
                 }else{
                   echo "Belum Mengisi";
                 }
-                ?> -->
+                ?>
               </p>
               <hr class="my-4" />
             </div>
