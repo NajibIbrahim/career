@@ -41,11 +41,10 @@ $this->load->view('admin/header');
                 <div class="col-md-4">
                   <div class="form-group">
                     <select class="form-control form-control-alternative" name="level">
-                      <option selected="" value=""><?php echo $level ?></option>
+                      <option selected="" value="<?= $level ?>"><?= $level ?></option>
                         <?php foreach ($trigger as $data): ?>
-                          <option value="$data->id_akun"><?php echo $data['level']?></option>
+                          <option value="<?= $data['level']?>"><?= $data['level']?></option>
                         <?php endforeach; ?>
-                    
                     </select>
                   </div>
                 </div>
