@@ -21,7 +21,7 @@ $this->load->view('guru/header');
                 <h2 class="mb-0 text-primary">Data Pengisian</h2>
               </div>
               <div class="pull-right">
-                <a href="" class="btn btn-sm btn-success"><i class="fa fa-download"></i> DOWNLOAD</a>
+                <a href="<?php echo site_url('guru/pengisi/export_excel') ?>" class="btn btn-sm btn-success"><i class="fa fa-download"></i> DOWNLOAD</a>
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@ $this->load->view('guru/header');
                   <th scope="col">Nama</th>
                   <th scope="col">Kategori</th>
                   <th width="70px">Nilai</th>
-                  <th width="30px">Aksi</th>
+                  <!-- <th width="30px">Aksi</th> -->
                 </tr>
               </thead>
               <tbody>
@@ -43,7 +43,7 @@ $this->load->view('guru/header');
                 foreach ($data as $pengisi) { ?>
                   <tr>
                     <td><?= $no++; ?></td>
-                    <td><?= $pengisi['username']; ?></td>
+                    <td><?= $pengisi['nama'] ?></td>
                     <td><?php 
                     $a = $pengisi['id_kategori'];
                     if($a=='1'){
@@ -68,9 +68,9 @@ $this->load->view('guru/header');
                     
                     ?></td>
                     <td><?= $pengisi['total_jawab']; ?></td>
-                    <td>
+                   <!-- <td>
                       <a href="<?php echo site_url('admin/pengisi/lihat/'.$pengisi['id_pengisi']) ?>" class="btn btn-sm btn-primary">DETAIL</a>
-                    </td>
+                    </td>  -->
                   </tr>
                   <?php } ?>
               </tbody>

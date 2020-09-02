@@ -9,6 +9,7 @@ class Pengisi extends CI_Controller {
 		parent::__construct();
         //load model admin
 		$this->load->model('admin');
+		$this->load->model('Pengisi_Model');
         //cek session dan level user
 		if($this->admin->is_role() != "guru"){
 			redirect("login");
@@ -17,14 +18,24 @@ class Pengisi extends CI_Controller {
 
 	public function index()
 	{
-		$data = $this->Akun_Model->Get('pengisi');
+		$data = $this->Pengisi_Model->Get('pengisi');
 		$data = array('data' => $data);
 
 		$this->load->view('guru/pengisi_list', $data);
 	}
 
-	public function lihat()
+	public function lihat($id)
 	{
-		$this->load->view('guru/pengisi_lihat');
+		$akun=($this->Pengisi_Model->ambil_data_id($id));
+
+		$this->load->view('guru/pengisi_lihat', $data);
+	}
+
+	public function export_excel()
+	{
+		$data = $this->Pengisi_Model->Get('pengisi');
+		$data = array('data' => $data);
+
+		$this->load->view('guru/download_excel', $data);
 	}
 }

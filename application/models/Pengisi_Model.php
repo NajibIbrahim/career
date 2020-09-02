@@ -76,7 +76,8 @@ class Pengisi_Model extends CI_Model {
 		$this->db->select('pengisi.*,tbl_akun.*');
 		$this->db->from('pengisi');
 		$this->db->join('tbl_akun', 'pengisi.username = tbl_akun.username');
-		$this->db->order_by('nama', 'asc');
+		// $this->db->order_by('nama', 'asc');
+		$this->db->order_by('nama asc, id_kategori asc');
 		$query = $this->db->get();
 		return $query->result_array();
 	}
