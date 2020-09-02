@@ -75,7 +75,7 @@ class Akun extends CI_Controller {
 			'trigger' => $this->Level_Model->Get('tbl_level'),
 			'action' => site_url('admin/akun/aksi_edit')
 		);
-		var_dump($akun);
+		// var_dump($akun);
 		$this->load->view('admin/akun_edit', $data);
 	}
 

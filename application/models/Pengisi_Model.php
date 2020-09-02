@@ -64,15 +64,22 @@ class Pengisi_Model extends CI_Model {
 		// $this->db->where('id_akun',$id);
 		return $this->db->get($this->$table)->row();
 	}
-
-	function Get($id)
+	
+	function edit_data($id, $data)
 	{
-		$res = $this->db->get($table);
-		return $res->result_array();
+		$this->db->where($this->id, $id);
+		$this->db->update($this->table,$data);
 	}
 
-
-
+	public function Get()
+	{
+		$this->db->select('pengisi.*,tbl_akun.*');
+		$this->db->from('pengisi');
+		$this->db->join('tbl_akun', 'pengisi.username = tbl_akun.username');
+		$this->db->order_by('nama', 'asc');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 
 	function getKategori($kategori, $username)
 	{
@@ -91,16 +98,6 @@ class Pengisi_Model extends CI_Model {
 		->where('username', $username);
 		return $this->db->get();
 	}
-
-
-
-
-
-
-
-
-
-
 
 
 

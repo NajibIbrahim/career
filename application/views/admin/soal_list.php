@@ -46,7 +46,8 @@ $this->load->view('admin/header');
                   foreach ($data as $soal) { ?>
                     <tr>
                       <td><?php echo $no++;?></td>
-                      <td><?= substr($soal['soal'], 0,50); ?> ...</td>
+                      <!-- <td><?= substr($soal['soal'], 0,50); ?> ...</td> -->
+                      <td><?= $soal['soal']; ?></td>
                       <td>
                         <?php 
                         $data2 = $soal['kategori'];
@@ -64,8 +65,8 @@ $this->load->view('admin/header');
                         ?>  
                       </td>
                       <td>
-                        <a href="<?php echo site_url('admin/soal/lihat/'.$soal['id_soal']) ?>" class="btn btn-sm btn-primary">LIHAT</a>
-                        <a href="<?php echo site_url('admin/soal/edit/'.$soal['id_soal']) ?>" class="btn btn-sm btn-success">EDIT</a>
+                        <!-- <a href="<?php echo site_url('admin/soal/lihat/'.$soal['id_soal']) ?>" class="btn btn-sm btn-primary">LIHAT</a>
+                        <a href="<?php echo site_url('admin/soal/edit/'.$soal['id_soal']) ?>" class="btn btn-sm btn-success">EDIT</a> -->
                         <a href="<?php echo site_url('admin/soal/hapus/'.$soal['id_soal']) ?>" class="btn btn-sm btn-danger">HAPUS</a>
                       </td>
                     </tr>
