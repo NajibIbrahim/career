@@ -25,6 +25,20 @@ class Ubahpassword extends CI_Controller {
 
 	public function aksi_ubah()
 	{
-
+		$password = md5($_POST['password']);
+		$data = array(
+			'nama'     => $this->input->post('nama'),
+			'ket'      => $this->input->post('ket'),
+			'username' => $this->input->post('username'),
+			'level'    => $this->input->post('level'),
+			'password' => $password
+		);
+		$id_akun = $this->input->post('id_akun');
+		$this->Akun_Model->edit_data($id_akun,$data);
+		?>
+		<script>
+			alert("Password anda berhasil diubah !"); document.location= '../Dashboard';
+		</script>
+		<?php
 	}
 }

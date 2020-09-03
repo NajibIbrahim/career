@@ -12,8 +12,14 @@ $this->load->view('guru/header');
           <div class="col">
             <h2 class="mb-3 text-primary">UBAH PASSWORD</h2>
           </div>
-          <form action="" method="post">
+          <form action="<?= site_url('guru/ubahpassword/aksi_ubah') ?>" method="post">
             <div class="row">
+            <input type="hidden" name="id_akun" value="<?= $this->session->userdata("user_id") ?>">
+            <input type="hidden" name="level" value="<?= $this->session->userdata("role") ?>">
+            <input type="hidden" name="nama" value="<?= $this->session->userdata("user_nama") ?>">
+            <input type="hidden" name="ket" value="<?= $this->session->userdata("user_ket") ?>">
+            <input type="hidden" name="username" value="<?= $this->session->userdata("user_name") ?>">
+
               <div class="col-md-6">
                 <div class="form-group">
                   <input type="text" class="form-control form-control-alternative" value="<?php echo $this->session->userdata("user_nama") ?>" name="nama" disabled>
